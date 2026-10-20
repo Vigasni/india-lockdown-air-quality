@@ -208,7 +208,7 @@ def daily_curve(df: pd.DataFrame, city: str, pollutant: str, smooth: int = 7) ->
     Output dates are placed on 2020's calendar so all lines share one x-axis.
     """
     g = df[df["City"] == city].set_index("Date")[pollutant]
-    s = g.rolling(smooth, min_periods=max(2, smooth // 2), center=True).mean()
+    s = g.rolling(smooth, min_periods=min(smooth, max(2, smooth // 2)), center=True).mean()
     f = pd.DataFrame({"v": s, "year": s.index.year, "md": s.index.strftime("%m-%d")})
     f = f[(f["md"] >= "03-01") & (f["md"] <= "06-30")]
     wide = f.pivot_table(index="md", columns="year", values="v")
