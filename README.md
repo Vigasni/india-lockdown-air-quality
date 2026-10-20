@@ -1,4 +1,5 @@
 # Did India's 2020 lockdown clean the air, or just pause the pollution?
+Live app: https://india-lockdown-air-quality.streamlit.app/ (upload `city_day.csv` from Kaggle to use it)
 
 An interactive Python dashboard (Streamlit + Plotly) plus static figures (Matplotlib/Seaborn)
 comparing air quality in Indian cities during the 2020 lockdown (25 Mar - 31 May)
